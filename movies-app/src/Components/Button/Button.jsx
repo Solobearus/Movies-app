@@ -1,11 +1,13 @@
 import React from 'react'
 import style from './Button.module.css'
+import Buttonui from '@material-ui/core/Button';
 
 const Button = (props) => {
+ 
     return (
-        <div className={ style.Button }>
-            
-        </div>
+        <Buttonui onClick={() => {props.click(props.key)}} variant="contained" color="primary">
+            {props.value}
+        </Buttonui>
     )
 }
 
