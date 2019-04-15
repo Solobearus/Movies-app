@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,KAAM;EACF,KAAK,EAAE,GAAG;EAEV,OAAO,EAAE,IAAI;EACb,GAAG,EAAE,IAAI;EACT,qBAAqB,EAAE,cAAc",
+"sources": ["Item.module.scss"],
+"names": [],
+"file": "Item.module.css"
+}

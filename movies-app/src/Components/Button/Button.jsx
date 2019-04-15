@@ -5,7 +5,7 @@ import Buttonui from '@material-ui/core/Button';
 const Button = (props) => {
  
     return (
-        <Buttonui onClick={() => {props.click(props.key)}} variant="contained" color="primary">
+        <Buttonui onClick={() => {props.click(props.id)}} variant="contained" color="primary">
             {props.value}
         </Buttonui>
     )
