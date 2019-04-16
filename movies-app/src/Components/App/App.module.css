@@ -1,5 +1,10 @@
 .App {
+  background-image: url('../../Images/bg.png');
+
   text-align: center;
+  display: grid;
+  grid-template-columns: auto 1200px auto;
+  grid-template-areas: '. Container .' 
 }
 
 .App_logo {

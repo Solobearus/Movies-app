@@ -1,3 +1,11 @@
-
+.Container {
+  @import url("https://fonts.googleapis.com/css?family=Unica+One");
+  grid-area: Container;
+  padding: 20px;
+  background-color: #b69578; }
+  .Container h1 {
+    font-size: 3em;
+    margin: 0%;
+    font-family: 'Unica One', cursive; }
 
 /*# sourceMappingURL=Container.module.css.map */

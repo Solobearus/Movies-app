@@ -13,10 +13,10 @@ const DeleteModel = (props) => {
             <DialogTitle id="form-dialog-title">Delete {props.movie.Title}?</DialogTitle>
             
             <DialogActions>
-                <Button onClick={() => {this.props.handleClose()}} color="primary">
+                <Button onClick={() => {props.handleClose()}} color="primary">
                     Cancel
                 </Button>
-                <Button onClick={() => { props.click(props.movie.imdbID) }} color="primary">
+                <Button onClick={() => { props.click(props.movie.imdbID); props.handleClose(); }} color="primary">
                     Delete
                 </Button>
             </DialogActions>

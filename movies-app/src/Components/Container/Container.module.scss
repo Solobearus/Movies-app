@@ -1,3 +1,11 @@
 .Container {
-    
+    @import url('https://fonts.googleapis.com/css?family=Unica+One');
+    grid-area: Container;
+    padding: 20px;
+    background-color: rgb(182, 149, 120);
+    h1{
+        font-size: 3em;
+        margin: 0%;
+        font-family: 'Unica One', cursive;
+    }
 }

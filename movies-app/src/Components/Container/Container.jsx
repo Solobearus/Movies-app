@@ -6,15 +6,18 @@ import Modal from '../Modal/Modal.jsx'
 const Container = (props) => {
 
     const title = "Movies";
+
     
+
     return (
-        <div className={ style.Container }>
-            <h1>{title}</h1>
-            <TableMovies/>
-            {/* <Modal value='add'/> */}
+        <div className={style.Container}>
+            <h1>★ ★ ★ {title} ★ ★ ★</h1>
+            <br />
+            <TableMovies />
+            <br />
+            Application made by Ivan Solobear | Photo by Tyler Callahan on Unsplash
         </div>
     )
 }
 
 export default Container
- 

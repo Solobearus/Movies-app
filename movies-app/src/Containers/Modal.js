@@ -1,24 +1,21 @@
 // import { connect } from 'react-redux'
-// import { TOGGLE_MODAL } from '../../Redux/actions'
+// import { updateMovie, deleteMovie, } from '../Redux/actions'
 // import Modal from '../Components/Modal/Modal.jsx'
 
 // const mapStateToProps = (state, ownProps) => {
 //   return {
-//     open: ownProps.open 
+//     movie : ownProps.movie
 //   }
 // }
 
-// const mapDispatchToProps = (dispatch, ownProps) => {
+// const mapDispatchToProps = (dispatch) => {
 //   return {
-//     onClick: () => {
-//       dispatch(TOGGLE_MODAL(ownProps.open))
-//     }
+//     updateMovie: (payload) => dispatch(updateMovie(payload)),
+//     deleteMovie: (payload) => dispatch(deleteMovie(payload)),
 //   }
 // }
 
-// const ModalContainer = connect(
+// export default connect(
 //   mapStateToProps,
 //   mapDispatchToProps
 // )(Modal)
-
-// export default ModalContainer

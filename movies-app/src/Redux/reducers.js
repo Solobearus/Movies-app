@@ -1,12 +1,9 @@
+
 import {
     ADD_MOVIE,
     UPDATE_MOVIE,
     DELETE_MOVIE,
-    SET_MOVIES,
-    SET_MOVIES_PENDING,
-    SET_MOVIES_FULFILLED,
-    // OPEN_MODAL,
-    // CLOSE_MODAL
+    INIT_MOVIES,
 } from './actions'
 
 const initialState = {
@@ -37,18 +34,8 @@ function moviesReducer(state = initialState, action) {
             newitems.splice(index, 1);
             return {...state, items : newitems};
 
-        // case SET_MOVIES:
-        // console.log("test");
-        // return "test";
-
-        // case SET_MOVIES_PENDING:
-        // console.log("pending");
-        // return "test";
-        
-        case SET_MOVIES_FULFILLED:
-            
-            newitems = [...action.payload];            
-            return {...state, items : newitems};
+        case INIT_MOVIES:
+            return {...state, items : action.payload};
 
         default:
             return state

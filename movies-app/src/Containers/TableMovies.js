@@ -1,16 +1,17 @@
 import { connect } from 'react-redux'
-import { setMovie } from '../Redux/actions'
-import { SET_MOVIES } from '../Redux/actions'
+import { addMovie, updateMovie, deleteMovie, initMovies } from '../Redux/actions'
 import Table from '../Components/Container/Table/Table.jsx'
 
 const mapStateToProps = state => ({
-  movies: state.items
+  movies: state.moviesReducer.items
 });
+
 const mapDispatchToProps = (dispatch) => {
   return {
-    setMovies: () => dispatch({
-      type: SET_MOVIES
-    })
+    addMovie: (payload) => dispatch(addMovie(payload)),
+    updateMovie: (payload) => dispatch(updateMovie(payload)),
+    deleteMovie: (payload) => dispatch(deleteMovie(payload)),
+    initMovies: () => dispatch(initMovies())
   }
 };
 

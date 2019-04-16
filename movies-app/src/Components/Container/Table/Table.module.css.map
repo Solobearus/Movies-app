@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAAA,MAAO;EACH,OAAO,EAAE,IAAI;EACb,gBAAgB,EAAE,OAAO;EACzB,OAAO,EAAE,IAAI;EACb,GAAG,EAAE,IAAI;EACT,aAAa,EAAE,IAAI",
+"sources": ["Table.module.scss"],
 "names": [],
 "file": "Table.module.css"
 }

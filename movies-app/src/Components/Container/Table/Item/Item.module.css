@@ -1,7 +1,14 @@
 .Item {
-  width: 70%;
+  height: 120px;
   display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(8, 1fr); }
+  gap: 5px;
+  padding: 5px;
+  grid-template-columns: repeat(8, 1fr);
+  justify-content: center;
+  align-items: center;
+  background-color: #b69578;
+  box-shadow: 0px 4px #2C1D13;
+  border-radius: 15px;
+  font-size: 1em; }
 
 /*# sourceMappingURL=Item.module.css.map */
