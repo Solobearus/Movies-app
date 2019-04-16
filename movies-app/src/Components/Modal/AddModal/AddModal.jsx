@@ -36,10 +36,38 @@ class AddModal extends React.Component {
     }
 
     handleSubmit(event) {
-        console.log(this.state);
-
-        this.props.click(this.state);
-        this.props.handleClose();
+        if(!this.state.imdbID ) {
+            this.setState({
+                error: "Error : imdbID is not set"
+            });
+        } else if(this.state.imdbID.length != 9 ) {
+            this.setState({
+                error: "Error : imdbID must be 9 characters long"
+            });
+        } else if(!this.state.Title ) {
+            this.setState({
+                error: "Error : Title is not set"
+            });
+        } else if(this.state.Year < 1900 || this.state.Year > 2019){
+            this.setState({
+                error: "Error : Year must be between 1900 and 2019"
+            });
+        } else if(!this.state.Runtime ) {
+            this.setState({
+                error: "Error : Runtime is not set"
+            });
+        } else if(!this.state.Genre ) {
+            this.setState({
+                error: "Error : Genre is not set"
+            });
+        } else if(!this.state.Director ) {
+            this.setState({
+                error: "Error : Director is not set"
+            });
+        } else {
+            this.props.click(this.state);
+            this.props.handleClose();
+        }
         event.preventDefault();
     }
     render() {
@@ -48,12 +76,8 @@ class AddModal extends React.Component {
                 <DialogTitle id="form-dialog-title"> Adding a new movie</DialogTitle>
                 <form onSubmit={this.handleSubmit}>
                     <DialogContent>
+                        <p style={{color: 'red'}}>{this.state.error}</p>
                         <TextField
-                            inputProps={{
-                                maxLength: 9,
-                                minLength: 9,
-                            }}
-                            required
                             fullWidth
                             name="imdbID"
                             id="outlined-required"
@@ -66,7 +90,6 @@ class AddModal extends React.Component {
                             inputProps={{
                                 maxLength: 50,
                             }}
-                            required
                             fullWidth
                             name="Title"
                             id="outlined-required"
@@ -76,13 +99,8 @@ class AddModal extends React.Component {
                             onChange={this.handleChange}
                         />
                         <TextField
-                            required
                             fullWidth
                             type="number"
-                            inputProps={{
-                                min: "1900",
-                                max: "2019"
-                            }}
                             name="Year"
                             id="outlined-required"
                             label="Year"
@@ -94,7 +112,6 @@ class AddModal extends React.Component {
                             inputProps={{
                                 maxLength: 50,
                             }}
-                            required
                             fullWidth
                             name="Runtime"
                             id="outlined-required"
@@ -107,7 +124,6 @@ class AddModal extends React.Component {
                             inputProps={{
                                 maxLength: 50,
                             }}
-                            required
                             fullWidth
                             name="Genre"
                             id="outlined-required"
@@ -120,7 +136,6 @@ class AddModal extends React.Component {
                             inputProps={{
                                 maxLength: 50,
                             }}
-                            required
                             fullWidth
                             name="Director"
                             id="outlined-required"
