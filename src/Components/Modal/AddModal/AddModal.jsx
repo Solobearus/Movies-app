@@ -1,11 +1,8 @@
 import React from 'react'
-import style from './AddModal.module.css'
 import Button from '@material-ui/core/Button';
-import { Field, reduxForm } from 'redux-form'
 import store from '../../../Redux/store'
 import DialogContent from '@material-ui/core/DialogContent';
 import TextField from '@material-ui/core/TextField';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogActions from '@material-ui/core/DialogActions';
 
@@ -43,7 +40,7 @@ class AddModal extends React.Component {
             this.setState({
                 error: "Error : imdbID is not set"
             });
-        } else if(this.state.imdbID.length != 9 ) {
+        } else if(this.state.imdbID.length !== 9 ) {
             this.setState({
                 error: "Error : imdbID must be 9 characters long"
             });

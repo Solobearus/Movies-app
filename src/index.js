@@ -1,5 +1,4 @@
 import React from 'react';
-import rootReducer from './Redux/reducers'
 import { render } from 'react-dom';
 import { Provider } from 'react-redux'
 import ReduxStore from './Redux/store'
@@ -15,6 +14,9 @@ const theme = createMuiTheme({
       primary: {
           main: '#613C24',
       },
+  },
+  typography: {
+    useNextVariants: true,
   },
 });
 

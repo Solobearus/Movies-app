@@ -1,10 +1,9 @@
 .Container {
     @import url('https://fonts.googleapis.com/css?family=Unica+One');
+
     grid-area: Container;
-    padding: 20px;
     background-color: rgb(182, 149, 120);
-    min-height: 100vh;
-    // height: 100vh;
+    height:100vh;   
     
     h1{
         font-size: 3em;

@@ -1,9 +1,8 @@
 .Container {
   @import url("https://fonts.googleapis.com/css?family=Unica+One");
   grid-area: Container;
-  padding: 20px;
   background-color: #b69578;
-  min-height: 100vh; }
+  height: 100vh; }
   .Container h1 {
     font-size: 3em;
     margin: 0%;

@@ -1,6 +1,5 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 
 import DeleteModel from './DeleteModel/DeleteModel.jsx';
@@ -27,19 +26,19 @@ export default class Modal extends React.Component {
     };
 
     render() {
-        if (this.props.value == "Delete") {
+        if (this.props.value === "Delete") {
             this.model = <DeleteModel
                 click={this.props.click}
                 movie={this.props.movie}
                 handleClose={this.handleClose}
             />
-        } else if (this.props.value == "Edit") {
+        } else if (this.props.value === "Edit") {
             this.model = <EditModel
                 click={this.props.click}
                 movie={this.props.movie}
                 handleClose={this.handleClose}
             />
-        } else if (this.props.value == "Add") {
+        } else if (this.props.value === "Add") {
             this.model = <AddModal
                 click={this.props.click}
                 handleClose={this.handleClose}

@@ -36,60 +36,31 @@ const fetchMovies = (dispatch) => {
     let page = 1;
 
     fetch(`https://www.omdbapi.com/?apikey=${key}&s=${search}&page=${page}`)
-        .then(res => res.json())
-        .then(
-            (results) => {
-                let promises = [];
+    .then(res => res.json())
+    .then((results) => {
+        let promises = [];
 
-                //Unfortunatly I could not find any API that could fetch all requested data in one API call.
-                //So my solution was to run a API call for every movie the fetch got me and get all data for every movie in the list.
-                results.Search.map((result) => {
-                    promises.push(fetch(`https://www.omdbapi.com/?i=${result.imdbID}&apikey=${key}`));
+        //Unfortunatly I could not find any API that could fetch all requested data in one API call.
+        //So my solution was to run a API call for every movie the fetch got me and get all data for every movie in the list.
+        results.Search.map((result) => promises.push(fetch(`https://www.omdbapi.com/?i=${result.imdbID}&apikey=${key}`)));
+
+        Promise.all(promises)
+        .then((results) => {
+            let jsonPromises = results.map(result => result.json());
+
+            Promise.all(jsonPromises)
+            .then((movies)=>{
+                dispatch({
+                    type: INIT_MOVIES,
+                    payload: movies
                 });
-
-                Promise.all(promises).then((values) => {
-                    let movies = [];
-
-                    // Retrieve its body as ReadableStream
-                    console.log("values");
-                    let readerPromises = [];
-
-                    // for every value in values we have to read the stream of it.
-                    values.map((value) => {
-                        const reader = value.body.getReader();
-
-                        // Read every stream and update the final
-                        readerPromises.push(reader.read().then(function processText({ done, value }) {
-
-                            // if done end the read 
-                            if (done) {
-                                console.log("Stream complete");
-                                return;
-                            }
-
-                            var stringValue = new TextDecoder("utf-8").decode(value);
-                            let parsedText = JSON.parse(stringValue);
-                            movies.push(parsedText);
-
-                            //read next block in the stram.
-                            return reader.read().then(processText);
-                        }))
-                    })
-
-                    // this waits for all stream reads to finish before updating items in state. 
-                    Promise.all(readerPromises).then(() => {
-                        dispatch({
-                            type: INIT_MOVIES,
-                            payload: movies
-                        });
-                    });
-                });
-            },
-            // Note: it's important to handle errors here
-            // instead of a catch() block so that we don't swallow
-            // exceptions from actual bugs in components.
-            (error) => {
-                alert(error);
-            }
-        )
+            }) 
+        })
+    },
+    // Note: it's important to handle errors here
+    // instead of a catch() block so that we don't swallow
+    // exceptions from actual bugs in components.
+    (error) => {
+        alert(error);
+    })
 };
