@@ -16,7 +16,7 @@ const Item = (props) => {
     return (
         <div className={style.Item}>
             <p>{props.movie.imdbID}</p>
-            <p>{props.movie.Title}</p>
+            <p>{(props.movie.Title).toLowerCase().match(/([a-z\s])+/g).join('')}</p>
             <p>{props.movie.Year}</p>
             <p>{props.movie.Runtime}</p>
             <p>{props.movie.Genre}</p>

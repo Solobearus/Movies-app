@@ -2,7 +2,7 @@ import React from 'react'
 import style from './AddModal.module.css'
 import Button from '@material-ui/core/Button';
 import { Field, reduxForm } from 'redux-form'
-
+import store from '../../../Redux/store'
 import DialogContent from '@material-ui/core/DialogContent';
 import TextField from '@material-ui/core/TextField';
 import DialogContentText from '@material-ui/core/DialogContentText';
@@ -14,6 +14,7 @@ class AddModal extends React.Component {
         super(props);
 
         this.state = {
+            titles: store.getState().moviesReducer.items.map((item) => item.Title),
             error: '',
             imdbID: '',
             Title: '',
@@ -23,6 +24,8 @@ class AddModal extends React.Component {
             Director: '',
         };
 
+        console.log(this.state.titles);
+        
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -63,6 +66,10 @@ class AddModal extends React.Component {
         } else if(!this.state.Director ) {
             this.setState({
                 error: "Error : Director is not set"
+            });
+        } else if(this.state.titles.includes(this.state.Title)) {
+            this.setState({
+                error: `Error : ${this.state.Title} already exists.`
             });
         } else {
             this.props.click(this.state);
