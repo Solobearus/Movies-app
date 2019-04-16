@@ -35,7 +35,7 @@ const fetchMovies = (dispatch) => {
     let search = 'war';
     let page = 1;
 
-    fetch(`http://www.omdbapi.com/?apikey=${key}&s=${search}&page=${page}`)
+    fetch(`https://www.omdbapi.com/?apikey=${key}&s=${search}&page=${page}`)
         .then(res => res.json())
         .then(
             (results) => {
