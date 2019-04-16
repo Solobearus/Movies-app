@@ -89,10 +89,7 @@ const fetchMovies = (dispatch) => {
             // instead of a catch() block so that we don't swallow
             // exceptions from actual bugs in components.
             (error) => {
-                this.setState({
-                    isLoaded: true,
-                    error
-                });
+                alert(error);
             }
         )
 };

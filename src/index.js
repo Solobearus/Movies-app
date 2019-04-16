@@ -31,4 +31,4 @@ render(
 // Learn more about service workers: https://bit.ly/CRA-PWA
 
 //FIXME: if something breaks comment this back in
-// serviceWorker.unregister();
+serviceWorker.unregister();
