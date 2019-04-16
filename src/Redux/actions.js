@@ -44,7 +44,7 @@ const fetchMovies = (dispatch) => {
                 //Unfortunatly I could not find any API that could fetch all requested data in one API call.
                 //So my solution was to run a API call for every movie the fetch got me and get all data for every movie in the list.
                 results.Search.map((result) => {
-                    promises.push(fetch(`http://www.omdbapi.com/?i=${result.imdbID}&apikey=${key}`));
+                    promises.push(fetch(`https://www.omdbapi.com/?i=${result.imdbID}&apikey=${key}`));
                 });
 
                 Promise.all(promises).then((values) => {
