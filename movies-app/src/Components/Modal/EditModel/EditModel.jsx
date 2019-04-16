@@ -2,6 +2,7 @@ import React from 'react'
 import style from './EditModel.module.css'
 import Button from '@material-ui/core/Button';
 import { Field, reduxForm } from 'redux-form'
+import store from '../../../Redux/store'
 
 import DialogContent from '@material-ui/core/DialogContent';
 import TextField from '@material-ui/core/TextField';
@@ -15,6 +16,7 @@ class EditModel extends React.Component {
         super(props);
 
         this.state = {
+            titles: store.getState().moviesReducer.items.map((item) => item.Title),
             error: '',
             imdbID: this.props.movie.imdbID,
             Title: this.props.movie.Title,
@@ -57,6 +59,10 @@ class EditModel extends React.Component {
             this.setState({
                 error: "Error : Director is not set"
             });
+        } else if(this.state.titles.includes(this.state.Title)) {
+            this.setState({
+                error: `Error : ${this.state.Title} already exists.`
+            });
         } else {
             this.props.click(this.state);
             this.props.handleClose();
@@ -84,7 +90,6 @@ class EditModel extends React.Component {
                             inputProps={{
                                 maxLength: 50,
                             }}
-                            // required
                             fullWidth
                             name="Title"
                             id="outlined-required"
@@ -95,7 +100,6 @@ class EditModel extends React.Component {
                             onChange={this.handleChange}
                         />
                         <TextField
-                            // required
                             fullWidth
                             type="number"
                             name="Year"
@@ -110,7 +114,6 @@ class EditModel extends React.Component {
                             inputProps={{
                                 maxLength: 50,
                             }}
-                            // required
                             fullWidth
                             name="Runtime"
                             id="outlined-required"
@@ -124,7 +127,6 @@ class EditModel extends React.Component {
                             inputProps={{
                                 maxLength: 50,
                             }}
-                            // required
                             fullWidth
                             name="Genre"
                             id="outlined-required"
@@ -138,7 +140,6 @@ class EditModel extends React.Component {
                             inputProps={{
                                 maxLength: 50,
                             }}
-                            // required
                             fullWidth
                             name="Director"
                             id="outlined-required"
