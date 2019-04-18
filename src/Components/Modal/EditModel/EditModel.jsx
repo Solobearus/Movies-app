@@ -13,7 +13,10 @@ class EditModel extends React.Component {
         super(props);
 
         this.state = {
-            titles: store.getState().moviesReducer.items.map((item) => item.Title),
+            titles: store.getState()
+                            .moviesReducer
+                            .items
+                            .map((item) => (item.Title != this.props.movie.Title) ? item.Title : null),
             error: '',
             imdbID: this.props.movie.imdbID,
             Title: this.props.movie.Title,

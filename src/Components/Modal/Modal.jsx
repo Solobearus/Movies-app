@@ -26,25 +26,13 @@ export default class Modal extends React.Component {
     };
 
     render() {
-        if (this.props.value === "Delete") {
-            this.model = <DeleteModel
-                click={this.props.click}
-                movie={this.props.movie}
-                handleClose={this.handleClose}
-            />
-        } else if (this.props.value === "Edit") {
-            this.model = <EditModel
-                click={this.props.click}
-                movie={this.props.movie}
-                handleClose={this.handleClose}
-            />
-        } else if (this.props.value === "Add") {
-            this.model = <AddModal
-                click={this.props.click}
-                handleClose={this.handleClose}
-            />
+        // Awesome shorter version of handling which modal to show.
+        const modalProps = { click: this.props.click, movie: this.props.movie, handleClose: this.handleClose };
+        switch (this.props.value) {
+            case "Delete": this.model = <DeleteModel {...modalProps} />; break;
+            case "Edit": this.model = <EditModel {...modalProps} />; break;
+            case "Add": this.model = <AddModal {...modalProps} />; break;
         }
-
         return (
             <div>
                 <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
